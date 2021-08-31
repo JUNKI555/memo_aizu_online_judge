@@ -29,8 +29,7 @@ namespace ITP1_7_B
                 }
 
                 var combinationCount = 0;
-                var ignoreList = new List<List<int>>();
-                // var iMin = x >= 203 ? x - 200 : 1;
+                var ignoreList = new List<string>();
                 for (var i = 1; i <= n; i++) {
                     for (var j = 1; j <= n; j++) {
                         if (i == j) {
@@ -38,43 +37,23 @@ namespace ITP1_7_B
                         }
 
                         var kCalc = x - (i + j);
-                        var kMin = kCalc < 1 ? 1 : kCalc;
-                        if (kMin > 100) {
+                        if ((kCalc < 3)||(kCalc > n)||(kCalc == i)||(kCalc == j)) {
                             continue;
                         }
 
-                        for (var k = kMin; k <= n; k++) {
-                            if ((i == k)||(j == k)) {
-                                continue;
-                            }
+                        var numberList = new List<int>();
+                        numberList.Add(i);
+                        numberList.Add(j);
+                        numberList.Add(kCalc);
+                        numberList.Sort();
 
-                            if ((i + j + k) != x) {
-                                continue;
-                            }
-
-                            var numberList = new List<int>();
-                            numberList.Add(i);
-                            numberList.Add(j);
-                            numberList.Add(k);
-                            numberList.Sort();
-
-                            var exist = false;
-                            foreach (var ignore in ignoreList)
-                            {
-                                if (ignore.SequenceEqual(numberList)) {
-                                    exist = true;
-                                    break;
-                                }
-                            }
-
-                            if (exist) {
-                                continue;
-                            }
-
-                            ignoreList.Add(numberList);
-
-                            combinationCount++;
+                        var stringNumberList = String.Join(",", numberList);
+                        if (ignoreList.Contains(stringNumberList)) {
+                            continue;
                         }
+
+                        ignoreList.Add(stringNumberList);
+                        combinationCount++;
                     }
                 }
 
