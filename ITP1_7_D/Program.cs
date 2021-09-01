@@ -39,6 +39,7 @@ namespace ITP1_7_D
             Console.Out.Flush();
         }
 
+        // https://docs.microsoft.com/ja-jp/archive/msdn-magazine/2012/december/csharp-matrix-decomposition
         static decimal[][] CreateMatrix(int rows, int cols) {
             decimal[][] result = new decimal[rows][];
             for(int i = 0; i < rows; i++) {
