@@ -31,6 +31,7 @@ namespace ITP1_10_C
             Console.Out.Flush();
         }
 
+        // https://qiita.com/c60evaporator/items/59ad0dbebc53c742a4c9
         static double calcStdev(List<double> list) {
             var average = list.Average();   // 平均
             var sum2 = list.Select(x => x * x).Sum();   // 自乗和
