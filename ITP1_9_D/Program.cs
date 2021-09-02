@@ -31,6 +31,7 @@ namespace ITP1_9_D
                     var b = int.Parse(line[2]);
                     var operationWordCount = b-a+1;
                     var substr = text.Substring(a, operationWordCount);
+                    // https://stackoverflow.com/questions/228038/best-way-to-reverse-a-string
                     var charArray = substr.ToCharArray();
                     Array.Reverse(charArray);
                     var target = new string(charArray);
